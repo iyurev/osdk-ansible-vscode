@@ -1,0 +1,32 @@
+name: build-image
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:   
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to Registry
+        uses: docker/login-action@v2
+        with:
+          registry: quay.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: remote-dev/osdk-ansible-vscode:latest
+          context: v1.18.1
+          file: ../{context}/Dockerfile
+          build-args: |
+             OPERATOR_SDK_VERSION=1.18.1
+           
+           
