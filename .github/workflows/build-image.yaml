@@ -18,12 +18,15 @@ jobs:
           registry: quay.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-      
+          
+      - name: Some checks
+        run: ls -la ./ && ls -la ./v1.18.1
+
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: remote-dev/osdk-ansible-vscode:latest
+          tags: quay.io/remote-dev/osdk-ansible-vscode:latest
           context: ./v1.18.1
           file: ./Dockerfile
           build-args: |
