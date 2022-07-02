@@ -24,7 +24,7 @@ jobs:
         with:
           push: true
           tags: remote-dev/osdk-ansible-vscode:latest
-          context: v1.18.1
+          context: ./v1.18.1
           file: ./Dockerfile
           build-args: |
              OPERATOR_SDK_VERSION=1.18.1
