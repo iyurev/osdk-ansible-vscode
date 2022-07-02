@@ -18,9 +18,9 @@ jobs:
           registry: quay.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-          
+
       - name: Some checks
-        run: ls -la ./ && ls -la ./v1.18.1
+        run: ls -la ./ && ls -la $GITHUB_WORKSPACE
 
       - name: Build and push
         uses: docker/build-push-action@v3
