@@ -7,9 +7,9 @@ on:
         required: true
         type: string
     
-    registry:
-      type: string
-      required: true
+      registry:
+        type: string
+        required: true
     
     secrets:
       REGISTRY_USERNAME:
