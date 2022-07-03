@@ -7,9 +7,7 @@ on:
 
 jobs:
   build-container-image:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build image.
+        #runs-on: ubuntu-latest
         uses: ./.github/workflows/build-image.yaml
         with:
           osdk_version: 1.18.1
