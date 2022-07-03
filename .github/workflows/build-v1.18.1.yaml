@@ -3,7 +3,7 @@ name: OSDK v1.18.1
 on:
   push:
     paths:
-      - "./v1.18.1/*"
+      - "v1.18.1/**"
 
 jobs:
   build-container-image:
