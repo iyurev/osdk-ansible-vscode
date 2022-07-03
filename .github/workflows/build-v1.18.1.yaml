@@ -3,7 +3,8 @@ name: OSDK v1.18.1
 on:
   push:
     paths:
-      - "v1.18.1/**"
+      - 'v1.18.1/**'
+      #- 'Dockerfile'
 
 jobs:
   build-container-image:
@@ -11,7 +12,6 @@ jobs:
         with:
           osdk_version: 1.18.1
           registry: quay.io
-
         secrets: inherit
         
         
