@@ -34,6 +34,7 @@ RUN curl -L -o /usr/local/bin/opm https://github.com/operator-framework/operator
 RUN curl -L -o /usr/local/bin/operator-sdk  https://github.com/operator-framework/operator-sdk/releases/download/${OPERATOR_SDK_VERSION}/operator-sdk_${OS}_{$ARCH} && \
     chmod +x /usr/local/bin/operator-sdk 
 
+
 WORKDIR /root
 # Copy python dependencies (including ansible) to be installed using Pipenv
 COPY Pipfile* ./

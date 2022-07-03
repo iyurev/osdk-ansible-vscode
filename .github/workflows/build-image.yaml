@@ -38,12 +38,15 @@ jobs:
           registry: quay.io
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_TOKEN }}
+      
+      - name: Get current time
+        run: echo TIME_TAG=`date +%Y%m%d-%H%M` >> $GITHUB_ENV
 
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: quay.io/remote-dev/osdk-ansible-vscode:latest
+          tags: quay.io/remote-dev/osdk-ansible-vscode:latest,quay.io/remote-dev/osdk-ansible-vscode:${{ inputs.osdk_version }},quay.io/remote-dev/osdk-ansible-vscode:${{ env.TIME_TAG }}
           context: ./v${{ inputs.osdk_version }}
           file: ./Dockerfile
           build-args: |
