@@ -7,10 +7,11 @@ on:
 
 jobs:
   build-container-image:
-        #runs-on: ubuntu-latest
         uses: ./.github/workflows/build-image.yaml
         with:
           osdk_version: 1.18.1
+          registry: quay.io
+
         secrets: inherit
         
         
