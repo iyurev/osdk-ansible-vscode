@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: quay.io/remote-dev/osdk-ansible-vscode:latest,quay.io/remote-dev/osdk-ansible-vscode:${{ inputs.osdk_version }},quay.io/remote-dev/osdk-ansible-vscode:${{ env.TIME_TAG }}
+          tags: quay.io/remote-dev/osdk-ansible-vscode:${{ inputs.osdk_version }}-${{ env.TIME_TAG }},quay.io/remote-dev/osdk-ansible-vscode:${{ inputs.osdk_version }}-latest
           context: ./v${{ inputs.osdk_version }}
           file: ./Dockerfile
           build-args: |
