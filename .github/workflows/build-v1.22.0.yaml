@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'v1.22.0/**'
-      #- 'Dockerfile'
+      - 'Dockerfile'
 
 jobs:
   build-container-image:

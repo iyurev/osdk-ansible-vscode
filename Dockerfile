@@ -8,6 +8,7 @@ ARG OPERATOR_SDK_VERSION=v1.22.0
 ARG KUSTOMIZE_VERSION=v3.8.7
 
 
+
 #Install Docker CLI
 RUN apt-get update && \
     apt-get -y install ca-certificates curl gnupg lsb-release && \
